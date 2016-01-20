@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'ASCKit_Example', :exclusive => true do
+  pod "ASCKit", :path => "../"
+end
+
+target 'ASCKit_Tests', :exclusive => true do
+  pod "ASCKit", :path => "../"
+
+  pod 'FBSnapshotTestCase'
+end

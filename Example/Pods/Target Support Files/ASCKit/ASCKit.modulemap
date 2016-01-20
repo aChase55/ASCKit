@@ -1,0 +1,6 @@
+framework module ASCKit {
+  umbrella header "ASCKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

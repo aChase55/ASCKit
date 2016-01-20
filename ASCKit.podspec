@@ -9,21 +9,20 @@
 Pod::Spec.new do |s|
   s.name             = "ASCKit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ASCKit."
+  s.summary          = "A toolset of useful UIElements for rapid development"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "A set of UIElements necessary for any serious ios app"
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ASCKit"
+  s.homepage         = "https://github.com/aChase55/ASCKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Alex Chase" => "alex@lionhou.se" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ASCKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/aChase55/ASCKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'

@@ -1,0 +1,25 @@
+{
+  "name": "ASCKit",
+  "version": "0.1.0",
+  "summary": "A short description of ASCKit.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ASCKit",
+  "license": "MIT",
+  "authors": {
+    "Alex Chase": "alex@lionhou.se"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ASCKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "ASCKit": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

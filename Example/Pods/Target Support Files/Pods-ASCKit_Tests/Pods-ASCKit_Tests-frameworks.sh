@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ASCKit_Tests/ASCKit.framework"
+  install_framework "Pods-ASCKit_Tests/YYText.framework"
   install_framework "Pods-ASCKit_Tests/FBSnapshotTestCase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ASCKit_Tests/ASCKit.framework"
+  install_framework "Pods-ASCKit_Tests/YYText.framework"
   install_framework "Pods-ASCKit_Tests/FBSnapshotTestCase.framework"
 fi

@@ -1,10 +1,12 @@
 PODS:
-  - ASCKit (0.1.0)
+  - ASCKit (0.1.0):
+    - YYText
   - FBSnapshotTestCase (2.0.7):
     - FBSnapshotTestCase/SwiftSupport (= 2.0.7)
   - FBSnapshotTestCase/Core (2.0.7)
   - FBSnapshotTestCase/SwiftSupport (2.0.7):
     - FBSnapshotTestCase/Core
+  - YYText (0.9.19)
 
 DEPENDENCIES:
   - ASCKit (from `../`)
@@ -15,7 +17,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ASCKit: fdfac64be0131d81ff1283eead95ba7ab72516d7
+  ASCKit: ddafd2c5ae6602adf6d6b873b6d461a9e631f681
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
+  YYText: b823b71b99b526c4a81029ecb59f3d8172ed5c9a
 
 COCOAPODS: 0.39.0

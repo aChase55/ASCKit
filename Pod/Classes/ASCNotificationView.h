@@ -54,6 +54,11 @@ typedef NS_ENUM(NSInteger, ASCNotificationStyle) {
 @property (nonatomic,strong)UIImageView *notificationImageView;
 @property (nonatomic,strong)UILabel *notificationLabel;
 
+@property (nonatomic,assign)CGFloat animationTime;
+@property (nonatomic,assign)CGFloat notificationDuration;
+
+
+
 //Subclass and override for customization
 -(UIColor *)defaultColor;
 -(UIColor *)successColor;

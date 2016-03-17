@@ -9,9 +9,9 @@
 #import <YYText/YYText.h>
 
 @interface ASCLabel : YYLabel
+-(instancetype)initWithText:(NSString *)text;
 -(instancetype)initWithText:(NSString *)text atOrigin:(CGPoint)origin;
-
+-(instancetype)initWithText:(NSString *)text inView:(UIView *)view;
 @property(nonatomic,strong)NSNumber *defaultKern;
-
 
 @end

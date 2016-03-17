@@ -1,12 +1,20 @@
 PODS:
   - ASCKit (0.1.0):
+    - BFPaperButton
+    - Masonry
+    - UIImageEffects
     - YYText
+  - BFPaperButton (2.0.27):
+    - UIColor+BFPaperColors
   - FBSnapshotTestCase (2.0.7):
     - FBSnapshotTestCase/SwiftSupport (= 2.0.7)
   - FBSnapshotTestCase/Core (2.0.7)
   - FBSnapshotTestCase/SwiftSupport (2.0.7):
     - FBSnapshotTestCase/Core
-  - YYText (0.9.19)
+  - Masonry (0.6.4)
+  - UIColor+BFPaperColors (1.7.2)
+  - UIImageEffects (0.0.1)
+  - YYText (1.0.2)
 
 DEPENDENCIES:
   - ASCKit (from `../`)
@@ -17,8 +25,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ASCKit: ddafd2c5ae6602adf6d6b873b6d461a9e631f681
+  ASCKit: 6eeec07070fb64999533deeaca63cf9a84fdba2e
+  BFPaperButton: 3938d9b1a430dcdbe7f3eb1d17f4d92c67828097
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
-  YYText: b823b71b99b526c4a81029ecb59f3d8172ed5c9a
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
+  UIImageEffects: 37b99fa461e4965f332ca82e92f2c22a1075ee84
+  YYText: 9f1b8ce94f4169e40dd6a42182b42dbbd3e54020
 
 COCOAPODS: 0.39.0

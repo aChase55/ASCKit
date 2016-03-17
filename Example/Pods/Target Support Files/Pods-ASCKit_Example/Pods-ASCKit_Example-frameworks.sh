@@ -85,9 +85,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ASCKit_Example/ASCKit.framework"
+  install_framework "Pods-ASCKit_Example/BFPaperButton.framework"
+  install_framework "Pods-ASCKit_Example/Masonry.framework"
+  install_framework "Pods-ASCKit_Example/UIColor_BFPaperColors.framework"
+  install_framework "Pods-ASCKit_Example/UIImageEffects.framework"
   install_framework "Pods-ASCKit_Example/YYText.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ASCKit_Example/ASCKit.framework"
+  install_framework "Pods-ASCKit_Example/BFPaperButton.framework"
+  install_framework "Pods-ASCKit_Example/Masonry.framework"
+  install_framework "Pods-ASCKit_Example/UIColor_BFPaperColors.framework"
+  install_framework "Pods-ASCKit_Example/UIImageEffects.framework"
   install_framework "Pods-ASCKit_Example/YYText.framework"
 fi

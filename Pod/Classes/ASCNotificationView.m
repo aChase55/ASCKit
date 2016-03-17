@@ -10,11 +10,6 @@
 #define NOTIFICATION_FRAME_SMALL            CGRectMake(0.0, 0.0, SCREEN_WIDTH, STATUS_BAR_HEIGHT)
 #define NOTIFICATION_FRAME_LARGE            CGRectMake(0.0, 0.0, SCREEN_WIDTH, STATUS_NAV_HEIGHT)
 
-//TIME VALUES
-#define NOTIFICATION_DURATION               3.0f
-#define NOTIFICATION_ANIMATION_TIME         0.3f
-
-
 #import "ASCNotificationView.h"
 
 @interface ASCNotificationView()
@@ -24,6 +19,7 @@
 
 
 @implementation ASCNotificationView
+
 
 #pragma mark - Initializers
 + (instancetype)sharedInstance
@@ -35,6 +31,7 @@
     });
     return _sharedInstance;
 }
+
 -(instancetype)init{
     
     self =[super initWithFrame:NOTIFICATION_FRAME_LARGE];
@@ -44,14 +41,15 @@
         self.multipleTouchEnabled = NO;
         self.exclusiveTouch = YES;
         self.translucent = NO;
+        _notificationDuration = 3.0f;
+        _animationTime = 0.3f;
+        
         if (![_notificationImageView superview]) {
             [self addSubview:self.notificationImageView];
         }
         
-        
         if (![_notificationLabel superview]) {
             [self addSubview:self.notificationLabel];
-            
         }
         
         [self setupGestureRecognizer];
@@ -64,34 +62,44 @@
 /// -------------------------------------------------------------------------------------------
 
 
-/*
+
  #define NOTIFICATION_IMAGE_SIZE             30.0f
  #define NOTIFICATION_IMAGE_ORIGIN_X         14.0f
  #define NOTIFICATION_IMAGE_ORIGIN_Y         20.0f
- #define NOTIFICATION_IMAGE_FRAME            CGRectMake(NOTIFICATION_IMAGE_ORIGIN_X, NOTIFICATION_IMAGE_ORIGIN_Y, NOTIFICATION_IMAGE_SIZE, NOTIFICATION_IMAGE_SIZE)
- */
 
+ 
 -(UIImageView *)notificationImageView{
     if (!_notificationImageView) {
-        /*
+        
         _notificationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(NOTIFICATION_IMAGE_ORIGIN_X,
                                                                                (self.frame.size.height-NOTIFICATION_IMAGE_SIZE)/2,
                                                                                NOTIFICATION_IMAGE_SIZE,
-                                                                               NOTIFICATION_IMAGE_SIZE)];*/
+                                                                               NOTIFICATION_IMAGE_SIZE)];
+        
+        
+        NSString *sharedBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:@"ASCKit" ofType:@"bundle"];
+        NSBundle *podBundle = [NSBundle bundleWithPath:sharedBundlePath];
+        NSURL *imgUrl = [podBundle URLForResource:@"loading_circle" withExtension:@"png"];
+        NSData *imgData = [NSData dataWithContentsOfURL:imgUrl];
+        
+        UIImage *loadingImage = [UIImage imageWithData:imgData];
+        [_notificationImageView setImage:loadingImage];
         [_notificationImageView setContentMode:UIViewContentModeScaleAspectFit];
         [_notificationImageView setClipsToBounds:YES];
     }
     return _notificationImageView;
 }
 
+
+
+
+
 -(UILabel *)notificationLabel{
     if (!_notificationLabel) {
         _notificationLabel = [[UILabel alloc] init];
         [_notificationLabel setTextColor:[UIColor whiteColor]];
-     //   [_notificationLabel setFont:NOTIFICATION_FONT_LARGE];
         [_notificationLabel setText:@"Your message is notified"];
         [_notificationLabel setNumberOfLines:1];
-        
     }
     return _notificationLabel;
 }
@@ -105,6 +113,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notificationViewDidTap:)];
     [self addGestureRecognizer:tapGesture];
 }
+
 - (void)notificationViewDidTap:(UIGestureRecognizer *)gesture{
     [self animateNotificationOutOnComplete:_onTouch];
 }
@@ -113,6 +122,7 @@
 /// -------------------------------------------------------------------------------------------
 #pragma mark - style setup
 /// -------------------------------------------------------------------------------------------
+
 -(void)setNotificationStyle:(ASCNotificationStyle)notificationStyle{
     _notificationStyle = notificationStyle;
     switch (_notificationStyle) {
@@ -128,21 +138,21 @@
     }
     [_notificationLabel setFrame:self.bounds];
 }
+
 -(void)setupLargeNotification{
     
     [_notificationLabel removeFromSuperview];
+    
     _notificationLabel = nil;
     [self setFrame:NOTIFICATION_FRAME_LARGE];
     _notificationImageView.hidden = NO;
-    
     [self addSubview:self.notificationLabel];
-  //  [_notificationLabel setFont:NOTIFICATION_FONT_LARGE];
-    /*
+    
     [_notificationLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_notificationImageView).with.offset(5);
         make.left.equalTo(_notificationImageView.right).with.offset(LARGE_SPACING);
         make.right.equalTo(self);
-    }];*/
+    }];
     
 }
 -(void)setupSmallNotification{
@@ -255,7 +265,7 @@
 -(void)animateNotificationIn{
     _isShowingNotification = YES;
     __weak typeof(self)weakSelf = self;
-    [UIView animateWithDuration:NOTIFICATION_ANIMATION_TIME delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:_animationTime delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
         [weakSelf setFrame:CGRectOffset(self.frame, 0, self.frame.size.height)];
     }
                      completion:nil];
@@ -269,7 +279,7 @@
 {
     _isShowingNotification = NO;
     __weak typeof(self)weakSelf = self;
-    [UIView animateWithDuration:NOTIFICATION_ANIMATION_TIME delay:0.0f options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:_animationTime delay:0.0f options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [weakSelf setFrame:CGRectOffset(self.frame, 0, -self.frame.size.height)];
                      }
@@ -284,7 +294,7 @@
 
 -(void)rotateNotifactionImage{
     if (self.shouldAnimateImage) {
-        [self runSpinAnimationOnView:self.notificationImageView duration:NOTIFICATION_DURATION rotations:1 repeat:30];
+        [self runSpinAnimationOnView:self.notificationImageView duration:_notificationDuration rotations:1 repeat:30];
     }
 }
 
@@ -316,7 +326,7 @@
 
 -(NSTimer *)notificationTimer{
     if (!_notificationTimer) {
-        _notificationTimer = [NSTimer scheduledTimerWithTimeInterval:NOTIFICATION_DURATION
+        _notificationTimer = [NSTimer scheduledTimerWithTimeInterval:_notificationDuration
                                                               target:self
                                                             selector:@selector(animateNotificationViewOut)
                                                             userInfo:nil
@@ -330,6 +340,7 @@
         _notificationTimer = nil;
     }
 }
+
 
 
 /// -------------------------------------------------------------------------------------------
@@ -442,6 +453,13 @@
     [[ASCNotificationView sharedInstance] animateNotificationOutOnComplete:onComplete];
 }
 
+//Properties
+-(void)setNotificationDuration:(CGFloat)notificationDuration{
+    _notificationDuration = notificationDuration;
+}
+-(void)setAnimationTime:(CGFloat)animationTime{
+    _animationTime = animationTime;
+}
 
 
 @end

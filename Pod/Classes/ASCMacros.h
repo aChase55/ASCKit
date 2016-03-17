@@ -118,7 +118,7 @@
 
 #define BUNDLE_BASE_URL [urls basUrlForBundle]
 
-#define BASE_URL @"https://app.vetondemand.com/"
+
 
 
 #define METERS_PER_MILE 1609.344

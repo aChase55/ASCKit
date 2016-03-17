@@ -1,6 +1,9 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
-#import "ASCMacros.h"
-
 #endif
 
+#define MAS_SHORTHAND
+#import "Masonry.h"
+#import "ASCHelpers.h"
+#import "ASCMacros.h"
+#import "UIColor+BFPaperColors.h"

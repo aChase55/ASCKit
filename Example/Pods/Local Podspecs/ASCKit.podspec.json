@@ -13,18 +13,35 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "7.0"
+    "ios": "8.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "ASCKit": [
-      "Pod/Assets/*.png"
+      "Pod/Assets/*"
     ]
   },
+  "public_header_files": "Pod/Classes/**/*.h",
   "dependencies": {
     "YYText": [
 
+    ],
+    "UIImageEffects": [
+
+    ],
+    "BFPaperButton": [
+
+    ],
+    "Masonry": [
+
     ]
-  }
+  },
+  "prefix_header_contents": [
+    "#define MAS_SHORTHAND",
+    "#import \"Masonry.h\"",
+    "#import \"ASCHelpers.h\"",
+    "#import \"ASCMacros.h\"",
+    "#import \"UIColor+BFPaperColors.h\""
+  ]
 }

@@ -2,6 +2,7 @@
 
 #import "ASCAlertVC.h"
 #import "ASCNotificationView.h"
+#import "ASCSlideModalVC.h"
 #import "ASCKit.h"
 #import "ASCModalViewController.h"
 #import "ASCPresentationController.h"

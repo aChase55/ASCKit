@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0D2D9E92AA9F83E434FDF543'
+               BlueprintIdentifier = '339C97A5949C401B762C8CEA'
                BlueprintName = 'ASCKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ASCKit.framework'>

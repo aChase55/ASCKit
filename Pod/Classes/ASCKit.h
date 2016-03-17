@@ -16,4 +16,5 @@
 #import "ASCPageView.h"
 #import "ASCMacros.h"
 #import "ASCStyleManager.h"
+#import "ASCSlideModalVC.h"
 #endif

@@ -10,4 +10,5 @@
 
 @interface ASCHelpers : NSObject
 +(UIImage *)bundleImageNamed:(NSString *)imgName fileType:(NSString *)fileType;
++(UIFont *)bundleFontName:(NSString *)fontName fontExtension:(NSString *)fontExtension atSize:(CGFloat)fontSize;
 @end

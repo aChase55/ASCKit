@@ -8,6 +8,7 @@
 
 #import "ASCViewController.h"
 #import "ASCKit.h"
+
 @interface ASCViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,retain)UITableView *table;
@@ -32,25 +33,14 @@
     [self.table setDelegate:self];
     [self.view addSubview:self.table];
     
-    
     _cellTitles = @ [@"Small Notification",@"Large Notification",@"Blocking UI",@"Page Pop Up"];
   
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-
--(void)showNotification{
-    [ASCNotificationView longDefaultWithMessage:@"Notification long" onTouch:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 
+
+#pragma mark - UITableView Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _cellTitles.count;
@@ -66,13 +56,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row ==0) {
-        [self showNotification];
+    switch (indexPath.row) {
+        case 0:
+            [self showSmallNotification];
+            break;
+        case 1:
+            [self showLargeNotification];
+            break;
+        default:
+            break;
     }
-    
-    
 }
 
+#pragma mark - notifications
+
+-(void)showSmallNotification{
+    [ASCNotificationView shortDefaultWithMessage:@"A Small Notification"];
+}
+
+-(void)showLargeNotification{
+    [ASCNotificationView longDefaultWithMessage:@"A Large Notification" onTouch:nil];
+}
 
 
 @end

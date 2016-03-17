@@ -60,7 +60,7 @@
     if (text) {
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:[text mutableCopy]];
         attributedText.yy_font = [UIFont systemFontOfSize:16];
-        attributedText.yy_color = [UIColor grayColor];
+        attributedText.yy_color = [[ASCStyleManager sharedStyle]darkTextColor];
         attributedText.yy_kern = [self defaultKern];
         attributedText.yy_lineSpacing = [self defaultLineSpace];
         

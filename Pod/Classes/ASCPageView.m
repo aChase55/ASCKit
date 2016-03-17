@@ -76,7 +76,7 @@
 -(void)setupHeading{
     _headingLabel = [[UILabel alloc]init];
     [_headingLabel setText:_headingText];
-    _headingLabel.textColor =[UIColor paperColorGray700];
+    _headingLabel.textColor =[[ASCStyleManager sharedStyle]defaultTextColor];
     _headingLabel.backgroundColor = [UIColor redColor];
     [_headingLabel setFrame:CGRectMake(HUGE_SPACING, DEFAULT_SPACING, self.frame.size.width, CGRectGetHeight(_headingLabel.frame))];
     [self addSubview:_headingLabel];
@@ -85,7 +85,7 @@
 -(UIView *)dividorLine{
     if (!_dividorLine) {
         self.dividorLine = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_headingLabel.frame)+DEFAULT_SPACING, CGRectGetWidth(self.frame), 1)];
-        self.dividorLine.backgroundColor=[UIColor paperColorGray];
+        self.dividorLine.backgroundColor=[[ASCStyleManager sharedStyle]lightTextColor];
     }
     return _dividorLine;
 }

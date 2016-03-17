@@ -140,6 +140,7 @@
     if (self) {
         
         self.hidesStatusBar = YES;
+
         self.alertConfirmBlock = confirmBlock;
         if (cancelBlock) {
             _hasCancel = YES;
@@ -342,6 +343,15 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
+
+
+-(void)setCustomColor:(UIColor *)customColor{
+    [self.alertView setCustomColor:customColor];
+    [self.alertView setupStyle];
+}
+
+
 @end
 
 
@@ -419,7 +429,7 @@
     
     _descriptionLabel =  [[UILabel alloc]init];
     [_descriptionLabel setText:_descriptionText];
-    [_descriptionLabel setTextColor:[UIColor paperColorGray900]];
+    [_descriptionLabel setTextColor:[[ASCStyleManager sharedStyle]defaultTextColor]];
     _descriptionLabel.textAlignment = NSTextAlignmentCenter;
     [_descriptionLabel setNumberOfLines:0];
     [self updateAlertSizeToFitText];
@@ -450,7 +460,7 @@
     
     if (_hasCancel) {
         CGRect cancelFrame = CGRectMake(0, CGRectGetHeight(self.frame)-buttonHeight, buttonWidth, buttonHeight);
-        _cancelButton = [[ASCPaperButton alloc]initWhiteBgFlatWithText:@"Cancel" color:[UIColor paperColorGray]];
+        _cancelButton = [[ASCPaperButton alloc]initWhiteBgFlatWithText:@"Cancel" color:[[ASCStyleManager sharedStyle] lightTextColor]];
         _cancelButton.layer.cornerRadius = buttonCornerRadius;
         [_cancelButton setFrame:cancelFrame];
         [self addSubview:_cancelButton];
@@ -463,27 +473,38 @@
 -(void)setupStyle{
     [self setColorForStyle:_alertStyle];
 }
+
 -(void)setColorForStyle:(ASCAlertStyle)style{
     switch (style) {
         case ASCAlertStyleDefault:
-            self.alertColor = [UIColor paperColorPurple];
+            self.alertColor = [[ASCStyleManager sharedStyle] defaultColor];
             break;
         case ASCAlertStyleSuccess:
-            self.alertColor = [UIColor paperColorGreen];
+            self.alertColor = [[ASCStyleManager sharedStyle] successColor];
             break;
         case ASCAlertStyleWarning:
-            self.alertColor = [UIColor paperColorYellow];
+            self.alertColor = [[ASCStyleManager sharedStyle] warningColor];
             break;
         case ASCAlertStyleError:
-            self.alertColor = [UIColor paperColorRed];
+            self.alertColor = [[ASCStyleManager sharedStyle] errorColor];
             break;
         case ASCAlertStyleCustom:
             self.alertColor = self.customColor;
+            [self updateColors];
             break;
         default:
             break;
     }
+    
 }
+
+-(void)updateColors{
+
+    [(ASCPaperButton *)self.confirmButton setTapCircleColor:self.alertColor];
+    [(ASCPaperButton *)self.confirmButton setTitleColor:self.alertColor forState:UIControlStateNormal];
+    self.headingLabel.backgroundColor = self.alertColor;    
+}
+
 @end
 
 

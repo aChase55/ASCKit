@@ -22,8 +22,7 @@
 
 
 #pragma mark - Initializers
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance{
     static id _sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -106,7 +105,7 @@
 
 
 /// -------------------------------------------------------------------------------------------
-#pragma mark - gesture recognizer
+#pragma mark - gesture recognizers
 /// -------------------------------------------------------------------------------------------
 
 -(void)setupGestureRecognizer{
@@ -170,15 +169,10 @@
 }
 
 
-
-
-
-
-
-
 /// -------------------------------------------------------------------------------------------
 #pragma mark - type setup
 /// -------------------------------------------------------------------------------------------
+
 -(void)setNotificationType:(ASCNotificationType)notificationType{
     _notificationType = notificationType;
     switch (_notificationType) {
@@ -202,46 +196,33 @@
     }
 }
 -(void)setNotificationTypeDefault{
-    [self setBarTintColor:[self defaultColor]];
+    [self setBarTintColor:[[ASCStyleManager sharedStyle]defaultColor]];
     if (!_notificationImageView.hidden) {
      //   [_notificationImageView setImage:NOTIFICATION_IMAGE_LOADING];
     }
 }
 -(void)setNotificationTypeSuccess{
-    [self setBarTintColor:[self successColor]];
+    [self setBarTintColor:[[ASCStyleManager sharedStyle]successColor]];
+
     if (!_notificationImageView.hidden) {
       //  [_notificationImageView setImage:NOTIFICATION_IMAGE_SUCCESS];
     }
 }
 -(void)setNotificationTypeWarning{
-    [self setBarTintColor:[self warningColor]];
+    [self setBarTintColor:[[ASCStyleManager sharedStyle]warningColor]];
     if (!_notificationImageView.hidden) {
       //  [_notificationImageView setImage:NOTIFICATION_IMAGE_WARNING];
     }
 }
 -(void)setNotificationTypeError{
-    [self setBarTintColor:[self errorColor]];
+    [self setBarTintColor:[[ASCStyleManager sharedStyle]errorColor]];
     if (!_notificationImageView.hidden) {
       //  [_notificationImageView setImage:NOTIFICATION_IMAGE_ERROR];
     }
 }
 
 
--(UIColor *)defaultColor{
-    return [UIColor orangeColor];
-}
 
--(UIColor *)successColor{
-    return [UIColor greenColor];
-}
-
--(UIColor *)warningColor{
-    return [UIColor yellowColor];
-}
-
--(UIColor *)errorColor{
-    return [UIColor redColor];
-}
 
 
 

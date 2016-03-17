@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
     s.dependency 'UIImageEffects'
     s.dependency 'BFPaperButton'
     s.dependency 'Masonry'
-    s.prefix_header_contents = '#define MAS_SHORTHAND','#import "Masonry.h"','#import "ASCHelpers.h"','#import "ASCMacros.h"','#import "UIColor+BFPaperColors.h"'
+    s.prefix_header_contents = '#define MAS_SHORTHAND','#import "Masonry.h"','#import "ASCHelpers.h"','#import "ASCMacros.h"','#import "UIColor+BFPaperColors.h"','#import "ASCStyleManager.h"'
 
 
 end

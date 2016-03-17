@@ -42,6 +42,7 @@
     "#import \"Masonry.h\"",
     "#import \"ASCHelpers.h\"",
     "#import \"ASCMacros.h\"",
-    "#import \"UIColor+BFPaperColors.h\""
+    "#import \"UIColor+BFPaperColors.h\"",
+    "#import \"ASCStyleManager.h\""
   ]
 }

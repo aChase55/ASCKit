@@ -15,4 +15,5 @@
 #import "ASCAlertVC.h"
 #import "ASCPageView.h"
 #import "ASCMacros.h"
+#import "ASCStyleManager.h"
 #endif

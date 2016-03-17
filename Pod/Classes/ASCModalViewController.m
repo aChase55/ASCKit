@@ -47,7 +47,7 @@
     [super viewWillDisappear:animated];
     
     if(self.hidesStatusBar) {
-        
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     }
 }

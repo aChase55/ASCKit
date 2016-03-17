@@ -59,11 +59,7 @@ typedef NS_ENUM(NSInteger, ASCNotificationStyle) {
 
 
 
-//Subclass and override for customization
--(UIColor *)defaultColor;
--(UIColor *)successColor;
--(UIColor *)warningColor;
--(UIColor *)errorColor;
+
 
 /*********************************************
  ASCNotification class display methods

@@ -7,17 +7,25 @@
 //
 
 #import "ASCAppDelegate.h"
-
+#import "ASCKit.h"
 @implementation ASCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    
-    
+    [self setupStyles];
+
     
     return YES;
 }
+
+-(void)setupStyles{
+   // [[ASCStyleManager sharedStyle]setDefaultColor:[UIColor purpleColor]];
+
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

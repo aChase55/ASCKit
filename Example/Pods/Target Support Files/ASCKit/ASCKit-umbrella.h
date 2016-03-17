@@ -10,6 +10,7 @@
 #import "ASCPageView.h"
 #import "ASCPaperButton.h"
 #import "ASCPresentationController.h"
+#import "ASCStyleManager.h"
 #import "UINavigationController+ASCNavigation.h"
 
 FOUNDATION_EXPORT double ASCKitVersionNumber;

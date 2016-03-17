@@ -86,10 +86,10 @@ typedef NS_ENUM(NSInteger, ASCInputType){
 
 -(void)setConfrimText:(NSString *)confrimText;
 -(void)setCancelText :(NSString *)cancel;
+-(void)setCustomColor:(UIColor *)customColor;
 
 @property (nonatomic,assign)ASCAlertAnimationStyle animateInStyle;
 @property (nonatomic,assign)ASCAlertAnimationStyle animateOutStyle;
-
 @property (nonatomic,strong)NSString *inputText;
 
 @end
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, ASCInputType){
                  description:(NSString *)description
                        style:(ASCAlertStyle)style
                       cancel:(BOOL)cancel;
-
+-(void)setupStyle;
 @property(nonatomic,strong)UIColor *customColor;
 @property(nonatomic,strong)UIColor *alertColor;
 

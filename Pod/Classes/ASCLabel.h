@@ -11,9 +11,6 @@
 @interface ASCLabel : YYLabel
 -(instancetype)initWithText:(NSString *)text atOrigin:(CGPoint)origin;
 
-
-
-
 @property(nonatomic,strong)NSNumber *defaultKern;
 
 

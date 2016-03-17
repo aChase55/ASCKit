@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		241610D4CEE0509B3BE9721C /* Pods_ASCKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82704A97B0D5F0B88AF2FD6A /* Pods_ASCKit_Tests.framework */; };
+		4050619A1C9A6C150074E80E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405061991C9A6C150074E80E /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		1B6F46DDE404FA0D08A1A692 /* Pods-ASCKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASCKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASCKit_Example/Pods-ASCKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3FF8487FCFBDB4BC68E3F4D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		405061991C9A6C150074E80E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ASCKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASCKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +135,7 @@
 				6003F59C195388D20070C39A /* ASCAppDelegate.h */,
 				6003F59D195388D20070C39A /* ASCAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				405061991C9A6C150074E80E /* Launch Screen.storyboard */,
 				6003F5A5195388D20070C39A /* ASCViewController.h */,
 				6003F5A6195388D20070C39A /* ASCViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -278,6 +281,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				4050619A1C9A6C150074E80E /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,7 +516,6 @@
 			baseConfigurationReference = 1B6F46DDE404FA0D08A1A692 /* Pods-ASCKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASCKit/ASCKit-Prefix.pch";
 				INFOPLIST_FILE = "ASCKit/ASCKit-Info.plist";
@@ -528,7 +531,6 @@
 			baseConfigurationReference = 90E0DABD5608DBD6040EAF27 /* Pods-ASCKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASCKit/ASCKit-Prefix.pch";
 				INFOPLIST_FILE = "ASCKit/ASCKit-Info.plist";

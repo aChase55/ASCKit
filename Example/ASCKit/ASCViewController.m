@@ -8,27 +8,33 @@
 
 #import "ASCViewController.h"
 #import "ASCKit.h"
+@interface ASCViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@interface ASCViewController ()
+@property(nonatomic,retain)UITableView *table;
+
+@property (nonatomic,strong)NSArray *cellTitles;
 
 @end
 
 @implementation ASCViewController
+
+
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor redColor];
     
-    ASCLabel *label =[[ASCLabel alloc]initWithText:@"Hello \nthis is a new line of text" atOrigin:CGPointMake(0, 100)];
-    [self.view addSubview:label];
+    self.table =[[UITableView alloc]initWithFrame:self.view.frame];
+    [self.table setDataSource:self];
+    [self.table setDelegate:self];
+    [self.view addSubview:self.table];
     
     
-    UIButton *button = [[UIButton alloc]initWithFrame:self.view.frame];
-    [self.view addSubview:button];
-    [button addTarget:self action:@selector(showNotification) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+    _cellTitles = @ [@"Small Notification",@"Large Notification",@"Blocking UI",@"Page Pop Up"];
+  
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -42,5 +48,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _cellTitles.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell =[self.table dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell =[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    cell.textLabel.text = [_cellTitles objectAtIndex:indexPath.row];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row ==0) {
+        [self showNotification];
+    }
+    
+    
+}
+
+
 
 @end

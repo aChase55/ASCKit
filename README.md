@@ -7,6 +7,10 @@
 
 ## Usage
 
+
+A simple collection of common UI Elements, including alerts, notifications, and transitions. Support for custom fonts and color schemes are also included.
+
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
@@ -22,7 +26,7 @@ pod "ASCKit"
 
 ## Author
 
-Alex Chase, alex@lionhou.se
+Alex Chase, alexchase55@gmail.com
 
 ## License
 
